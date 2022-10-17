@@ -5,10 +5,10 @@
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    int pizza_cont=0, options, tamanho, quant;
+    int pizza_cont=0, sanduiche_cont=0, options, tamanho, quant;
 
     float pizzas[6] = {12.00, 18.00, 33.00, 36.00, 43.50, 49.00}, pizza_soma=0;
-    float massas[6] = {14.00, 14.00, 14.00, 14.00, 16.00, 15.00};
+    float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00}, sanduiche_soma=0;
 
     printf("################# FLUXO DE CAIXA #################\n");
 /*
@@ -52,9 +52,17 @@ int main()
 
             break;
 
-            //Aqui temos o chunk dos hamburguers
+            //Aqui temos o chunk dos sanduíches
             case 2:
-            printf("\nAguarde a proxima atualização!\n");
+            printf("\n1- Misto \n2- Misto Especial \n3- Piteco \n4- Cascão \n5- Cebolinha \n6- Mônica \n7- Rosinha \n8- Chico Bento \n9- Magali \n10- Calabresa\n");
+            printf("\nQual opção? ");
+            scanf("%i", &tamanho);
+            printf("\nQuantos? ");
+            scanf("%i", &quant);
+            sanduiche_soma = sanduiche_soma + (quant * sanduiche[tamanho-1]); 
+            sanduiche_cont++;
+            printf("\nEntrada concluída! (%.2f reais)\n", sanduiche_soma);
+
             break; 
     
             default:
@@ -63,7 +71,9 @@ int main()
 
     } while (options != 4);
 
+    printf("\nVendas realizadas: %i", (pizza_cont + sanduiche_cont));
     printf("\nMontante vendido em pizza: %.2f reais", pizza_soma);
+    printf("\nMontante vendido em sanduíche: %.2f reais", sanduiche_soma);
 
 
 
