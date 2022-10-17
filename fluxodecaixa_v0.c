@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 
 int main()
 {
@@ -9,6 +10,7 @@ int main()
 
     float pizzas[6] = {12.00, 18.00, 33.00, 36.00, 43.50, 49.00}, pizza_soma=0;
     float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00}, sanduiche_soma=0;
+    char lista_sanduiches[50][50] = {"Misto", "Misto Especial", "Piteco", "Cascão", "Cebolinha", "Mônica", "Rosinha", "Chico Bento", "Magali", "Calabresa", "X-Vegetal", "X-Cedaf", "X-Amoricana"};
 
     printf("################# FLUXO DE CAIXA #################\n");
 /*
@@ -54,8 +56,11 @@ int main()
 
             //Aqui temos o chunk dos sanduíches
             case 2:
-            printf("\n1- Misto \n2- Misto Especial \n3- Piteco \n4- Cascão \n5- Cebolinha \n6- Mônica \n7- Rosinha \n8- Chico Bento \n9- Magali \n10- Calabresa\n");
-            printf("\nQual opção? ");
+            for (int i = 0; i < 13; i++)
+            {
+                printf("\n%i- %s", i+1, lista_sanduiches[i]);
+            }
+            printf("\n\nQual opção? ");
             scanf("%i", &tamanho);
             printf("\nQuantos? ");
             scanf("%i", &quant);
