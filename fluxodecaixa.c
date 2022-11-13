@@ -28,12 +28,12 @@ int main()
     float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00};
     float massas[7] = {14.0, 14.0, 14.0, 14.0, 16.0, 15.0};
     
-    float pedidos[4][4] = {0};
+    float pedidos[999][4] = {0};
 
-    int options, quantidade;
-    int escolha_1, escolha_2, escolha_3;
+    int options, quantidade, frete=0, cont=0;
+    int escolha_1, escolha_2, escolha_3, escolha_4;
 
-    float soma_pizza=0, soma_sanduiche=0, soma_massa=0;
+    float soma_pizza=0, soma_sanduiche=0, soma_massa=0, soma=0, soma_linhas[999], soma_colunas[999];
 
     //printf("################# FLUXO DE CAIXA #################\n");
 
@@ -47,6 +47,7 @@ int main()
         soma_pizza=0; 
         soma_sanduiche=0; 
         soma_massa=0;
+        cont++;
 
         if (escolha_1 == 2) break;
         
@@ -120,6 +121,16 @@ int main()
 
                 break;
 
+                // Calculando o frete
+                case 4:
+                printf("\n1- Retirada   2- Entrega\n\nQual opção? ");
+                scanf("%i", &escolha_4);
+                if (escolha_4 == 2)
+                {
+                    pedidos[i][3] = 3;
+                    frete++;
+                }
+                
                 default:
                 break;
 
@@ -129,11 +140,31 @@ int main()
 
     }
 
+    //Somando as linhas
+    for (int i = 0; i < cont-1; i++)
+    {
+        soma=0;
+        for (int j = 0; j < 4; j++)
+        {
+            soma = soma + pedidos[i][j];
+        }
+        soma_linhas[i] = soma;
+    }
 
+    //Somando as colunas
+    for (int j = 0; j < 4; j++)
+    {
+        soma=0;
+        for (int i = 0; i < cont-1; i++)
+        {
+            soma = soma + pedidos[i][j];
+        }
+        soma_colunas[j] = soma;
+    }
 
-
+    //###### APENAS TESTE ######
     printf("\nTeste:\n");
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < cont-1; i++)
     {
         for (int j = 0; j < 4; j++)
         {
@@ -141,6 +172,28 @@ int main()
         }
         printf("\n");
     }
+    /*
+    printf("\nSoma linhas: ");
+    for (int i = 0; i < cont-1; i++)
+    {
+        printf("%.2f | ", soma_linhas[i]);
+    }
+
+    printf("\nSoma colunas: ");
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%.2f | ", soma_colunas[i]);
+    }
+    //###### APENAS TESTE ######
+    */
+
+    printf("\n\nTotal vendido em pizza: %.2f reais", soma_colunas[0]);
+    printf("\nTotal vendido em sanduíche: %.2f reais", soma_colunas[1]);
+    printf("\nTotal vendido em massa: %.2f reais", soma_colunas[2]);
+    printf("\nFaturamenteo total: %.2f reais", soma_colunas[0] + soma_colunas[1] + soma_colunas[2] + soma_colunas[3]);
+
+    printf("\nEntregas feitas na noite: %i", frete);
+    printf("\nTotal do frete: %.2f reais", soma_colunas[3]);
     
     return 0;
 }
