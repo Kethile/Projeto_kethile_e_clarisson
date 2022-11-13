@@ -24,31 +24,29 @@ int main()
     12.00, 18.00, 34.00, 39.00, 45.00, 50.00, // amoricana
     12.00, 18.00, 34.00, 37.50, 44.50, 50.00, // portuguesa
     17.00, 21.00, 34.00, 37.50, 45.00, 51.50}; // atum
-    float pizza_soma = 0.0;
 
-    float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00}, sanduiche_soma=0;
+    float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00};
     float massas[7] = {14.0, 14.0, 14.0, 14.0, 16.0, 15.0};
-
-    int pizza_cont=0, sanduiche_cont=0, options, tamanho, quantidade;
-    int auxiliar=0;
-
-    float pedidos[10][4];
-
     
+    float pedidos[4][4] = {0};
 
-    int linha=0, coluna=0;
+    int options, quantidade;
     int escolha_1, escolha_2, escolha_3;
+
+    float soma_pizza=0, soma_sanduiche=0, soma_massa=0;
 
     //printf("################# FLUXO DE CAIXA #################\n");
 
-    printf("\n##########  ABRINDO CAIXA ##########\n");
+    printf("\n########## ABRINDO CAIXA ##########\n");
 
     for (int i = 0; i < 999; i++)
     {
         printf("\n1- Novo pedido     2- Fechar caixa\n");
         printf("\nQual opção? ");
         scanf("%i", &escolha_1);
-        pizza_soma = 0.0;
+        soma_pizza=0; 
+        soma_sanduiche=0; 
+        soma_massa=0;
 
         if (escolha_1 == 2) break;
         
@@ -77,10 +75,10 @@ int main()
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
 
-                pizza_soma = pizza_soma + quantidade * (pizzas[escolha_2][escolha_3]);
-                pedidos[i][0] = pizza_soma;
+                soma_pizza = soma_pizza + quantidade * (pizzas[escolha_2][escolha_3]);
+                pedidos[i][0] = soma_pizza;
 
-                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", pizza_soma);
+                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_pizza);
 
                 break;
 
@@ -96,10 +94,29 @@ int main()
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
 
-                sanduiche_soma = sanduiche_soma + quantidade * (sanduiche[escolha_2]);
-                pedidos[i][1] = sanduiche_soma;
+                soma_sanduiche = soma_sanduiche + quantidade * (sanduiche[escolha_2]);
+                pedidos[i][1] = soma_sanduiche;
 
-                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", sanduiche_soma);
+                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_sanduiche);
+
+                break;
+
+                //Aqui temos o chunk das massas
+                case 3:
+                for (int i = 0; i < 7; i++)
+                {
+                    printf("%i- %s\n", i, lista_massas[i]);
+                }
+                printf("\nQual opção? ");
+                scanf("%i", &escolha_2);
+
+                printf("\nQuantidade? ");
+                scanf("%i", &quantidade);
+
+                soma_massa = soma_massa + quantidade * (massas[escolha_2]);
+                pedidos[i][2] = soma_massa;
+
+                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_massa);
 
                 break;
 
@@ -116,7 +133,7 @@ int main()
 
 
     printf("\nTeste:\n");
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
