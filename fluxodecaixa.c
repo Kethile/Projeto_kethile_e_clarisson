@@ -73,10 +73,10 @@ int main()
                 printf("\n0- Pequena   1- Broto      2- Média\n3- Grande    4- Gigante    5- Big\n");
                 printf("\nQual opção? ");
                 scanf("%i", &escolha_3);
-
+                
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
-
+                
                 soma_pizza = soma_pizza + quantidade * (pizzas[escolha_2][escolha_3]);
                 pedidos[i][0] = soma_pizza;
                 cont_pizza = cont_pizza + quantidade;
@@ -119,7 +119,7 @@ int main()
 
                 soma_massa = soma_massa + quantidade * (massas[escolha_2]);
                 pedidos[i][2] = soma_massa;
-                cont_massa = cont_massa+ quantidade;
+                cont_massa = cont_massa + quantidade;
 
                 printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_massa);
 
