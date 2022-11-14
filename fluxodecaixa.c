@@ -81,7 +81,7 @@ int main()
                 pedidos[i][0] = soma_pizza;
                 cont_pizza = cont_pizza + quantidade;
 
-                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_pizza);
+                printf("\nEntrada concluída!");
 
                 break;
 
@@ -101,7 +101,7 @@ int main()
                 pedidos[i][1] = soma_sanduiche;
                 cont_sanduiche = cont_sanduiche + quantidade;
 
-                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_sanduiche);
+                printf("\nEntrada concluída!");
 
                 break;
 
@@ -121,7 +121,7 @@ int main()
                 pedidos[i][2] = soma_massa;
                 cont_massa = cont_massa + quantidade;
 
-                printf("\nEntrada concluída!\nTotal do pedido: (%.2f reais)\n", soma_massa);
+                printf("\nEntrada concluída!");
 
                 break;
 
