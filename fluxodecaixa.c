@@ -10,7 +10,9 @@ int main()
     char lista_pizzas[50][50] = {"Presunto", "Muçarela", "Bacon", "Calabresa", "Frango", "Bolonhesa", "Salaminho", "Lombinho", "À moda", "Amoricada", "Portuguese", "Atum"};
     char lista_sanduiches[50][50] = {"Misto", "Misto Especial", "Piteco", "Cascão", "Cebolinha", "Mônica", "Rosinha", "Chico Bento", "Magali", "Calabresa", "X-Vegetal", "X-Cedaf", "X-Amoricana"};
     char lista_massas[50][50] = {"Espaguete Bolonhesa", "Espaguete de Frango", "Espaguete Molho Vermelho", "Alho e óleo", "Espaguete na Chapa", "Omelete", "Lasanha"};
-    
+    char lista_acrescimo_pizza[50][50]={"Cheddar","Catupiry","Cream Chese","Caramelo","Bacon","Palmito","Molho Bolonhesa"};
+    char lista_acrescimo_sanduiches[50][50]={"Hamburguer de boi", "Hamburguer de frango", "Frango desfiado", "Bacon", "Ovo", "Queijo", "Catupiry", "Chedar",};
+
     float pizzas[12][6] = 
     {12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // presunto
     12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // muçarela
@@ -26,11 +28,13 @@ int main()
     17.00, 21.00, 34.00, 37.50, 45.00, 51.50}; // atum
 
     float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00};
-    float massas[7] = {14.0, 14.0, 14.0, 14.0, 16.0, 15.0};
-    
+    float massas[7] = {14.00, 14.00, 14.00, 14.00, 16.00, 15.00};
+    float acrescimo_pizza[7]={6.00, 6.00, 6.00, 6.00, 5.00, 5.00, 5.00};
+    float acrescimo_sanduiche[8]={4.00, 4.00, 3.00, 4.00, 2.00, 3.00, 4.00, 4.00};
+
     float pedidos[999][4] = {0};
 
-    int escolha_1, escolha_2, escolha_3, escolha_4;
+    int escolha_1, escolha_2, escolha_3, escolha_4, escolha_5, escolha_6;
     int options, quantidade, cont_linhas=0, frete=0;
     int cont_pizza=0, cont_sanduiche=0, cont_massa=0;
     
