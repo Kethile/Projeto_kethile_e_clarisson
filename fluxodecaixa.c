@@ -43,7 +43,7 @@ int main()
     for (int i = 0; i < 999; i++)
     {
         printf("\n1- Novo pedido     2- Fechar caixa\n");
-        printf("\nQual opção? ");
+        printf("\nQual opção? Digite apenas o número.");
         scanf("%i", &escolha_1);
         soma_pizza=0; 
         soma_sanduiche=0; 
@@ -73,6 +73,7 @@ int main()
                 printf("\n0- Pequena   1- Broto      2- Média\n3- Grande    4- Gigante    5- Big\n");
                 printf("\nQual opção? ");
                 scanf("%i", &escolha_3);
+                
                 
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
