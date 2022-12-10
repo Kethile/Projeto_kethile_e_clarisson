@@ -83,7 +83,7 @@ int main()
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
 
-                printf("vai quer acrecimo?Digite o número.\n");
+                printf("vai quer acréscimo?Digite o número.\n");
                 printf("\n1- Sim     2- Não\n");
                 scanf("%i",&acrescimo);
                 int x;
@@ -97,7 +97,7 @@ int main()
             
                     soma_pizza = SomaPizzaAcrescimo(soma_pizza, quantidade, escolha_2, escolha_3, escolha_5 );
                     pedidos[i][0] = soma_pizza;
-                    printf("Vai querer outro acrecismo?\nDigite o número");
+                    printf("Vai querer outro acréscismo?\nDigite o número");
                     printf("\n1- Sim     2- Não\n");
                     scanf("%i",&x);
                 } while (x!=2);
