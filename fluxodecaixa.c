@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-
+float SomaPizza(int quantidade, int escolha_2, int escolha_3 );
+float SomaPizzaAcrescimo(int quantidade, int escolha_2, int escolha_3, int escolha_5 );
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -35,7 +36,7 @@ int main()
     float pedidos[999][4] = {0};
 
     int escolha_1, escolha_2, escolha_3, escolha_4, escolha_5, escolha_6;
-    int options, quantidade, cont_linhas=0, frete=0;
+    int options, quantidade, cont_linhas=0, frete=0, acrescimo;
     int cont_pizza=0, cont_sanduiche=0, cont_massa=0;
     
     float soma_pizza=0, soma_sanduiche=0, soma_massa=0, soma=0, soma_linhas[999], soma_colunas[999];
@@ -81,11 +82,26 @@ int main()
                 
                 printf("\nQuantidade? ");
                 scanf("%i", &quantidade);
-                
-                soma_pizza = soma_pizza + quantidade * (pizzas[escolha_2][escolha_3]);
+
+                printf("vai quer acrecimo?Digite o número.\n");
+                printf("\n1- Sim     2- Não\n");
+                scanf("%i",&acrescimo);
+                if (acrescimo==0){
+                  for (int i = 0; i < 12; i++)
+                {
+                    printf("%i- %s\n", i, lista_acrescimo_pizza[i]);
+                    printf("Qual escolha?\n");
+                    scanf("%i",&escolha_5);
+
+                    soma_pizza = SomaPizzaAcrescimo(quantidade, escolha_2, escolha_3, escolha_5 );
+                    pedidos[i][0] = soma_pizza;
+                    cont_pizza = cont_pizza + quantidade;
+                }}
+                else if(acrescimo==2){
+                soma_pizza = SomaPizza (quantidade, escolha_2, escolha_3 );
                 pedidos[i][0] = soma_pizza;
                 cont_pizza = cont_pizza + quantidade;
-
+                }
                 printf("\nEntrada concluída!");
 
                 break;
@@ -205,4 +221,41 @@ int main()
     printf("\nTotal do frete: %.2f reais", soma_colunas[3]);
     
     return 0;
+}
+float SomaPizza( int quantidade, int escolha_2, int escolha_3 ){
+    float soma_pizza;
+    float pizzas[12][6] = 
+    {12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // presunto
+    12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // muçarela
+    12.00, 18.00, 33.00, 36.00, 44.50, 50.00, // bacon
+    12.00, 18.00, 33.00, 36.00, 43.50, 50.00, // calabresa
+    12.00, 18.00, 33.00, 36.00, 44.50, 49.00, // frango
+    12.00, 18.00, 34.00, 37.00, 44.50, 49.00, // bolonhesa
+    12.00, 18.00, 34.00, 36.00, 45.00, 50.50, // salaminho
+    12.00, 18.00, 33.00, 36.00, 45.50, 50.00, // lombinho
+    12.00, 18.00, 33.00, 36.00, 44.50, 50.00, // a moda
+    12.00, 18.00, 34.00, 39.00, 45.00, 50.00, // amoricana
+    12.00, 18.00, 34.00, 37.50, 44.50, 50.00, // portuguesa
+    17.00, 21.00, 34.00, 37.50, 45.00, 51.50}; // atum
+    soma_pizza = soma_pizza + quantidade * (pizzas[escolha_2][escolha_3]);
+    return soma_pizza;
+}
+float SomaPizzaAcrescimo(int quantidade, int escolha_2, int escolha_3, int escolha_5 ){
+    float soma_pizza;
+    float pizzas[12][6] = 
+    {12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // presunto
+    12.00, 18.00, 33.00, 36.00, 43.50, 49.00, // muçarela
+    12.00, 18.00, 33.00, 36.00, 44.50, 50.00, // bacon
+    12.00, 18.00, 33.00, 36.00, 43.50, 50.00, // calabresa
+    12.00, 18.00, 33.00, 36.00, 44.50, 49.00, // frango
+    12.00, 18.00, 34.00, 37.00, 44.50, 49.00, // bolonhesa
+    12.00, 18.00, 34.00, 36.00, 45.00, 50.50, // salaminho
+    12.00, 18.00, 33.00, 36.00, 45.50, 50.00, // lombinho
+    12.00, 18.00, 33.00, 36.00, 44.50, 50.00, // a moda
+    12.00, 18.00, 34.00, 39.00, 45.00, 50.00, // amoricana
+    12.00, 18.00, 34.00, 37.50, 44.50, 50.00, // portuguesa
+    17.00, 21.00, 34.00, 37.50, 45.00, 51.50}; // atum
+    float acrescimo_pizza[7]={6.00, 6.00, 6.00, 6.00, 5.00, 5.00, 5.00};
+    soma_pizza = soma_pizza + quantidade * (pizzas[escolha_2][escolha_3])*(acrescimo_pizza[escolha_5]);
+    return soma_pizza;
 }
