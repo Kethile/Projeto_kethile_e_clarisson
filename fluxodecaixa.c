@@ -148,7 +148,7 @@ int main()
     }*/
 
     
-
+    // printando
     printf("\nTotal vendido em pizza: %i pizzas (%.2f reais)", cont_pizza, soma_colunas[0]);
     printf("\nTotal vendido em sanduíche: %i sanduíches (%.2f reais)", cont_sanduiche, soma_colunas[1]);
     printf("\nTotal vendido em massa: %i massas (%.2f reais)", cont_massa, soma_colunas[2]);
@@ -156,6 +156,7 @@ int main()
     printf("\nEntregas feitas na noite: %i", frete);
     printf("\nFaturamenteo total: %.2f reais", soma_colunas[0] + soma_colunas[1] + soma_colunas[2] + soma_colunas[3]);
 
+    //salvando no log
     arquivo = fopen("log_noites.txt", "a+");
     fprintf(arquivo, "\n\nTotal vendido em pizza: %i pizzas (%.2f reais)", cont_pizza, soma_colunas[0]);
     fprintf(arquivo, "\nTotal vendido em sanduíche: %i sanduíches (%.2f reais)", cont_sanduiche, soma_colunas[1]);
