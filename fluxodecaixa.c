@@ -14,8 +14,8 @@ int main()
     int tabela_pizza();
     
     float sanduiche[13] = {8.50, 10.50, 13.50, 14.00, 14.50, 16.00, 17.00, 16.00, 19.00, 15.50, 13.50, 17.00, 26.00};
-    float massas[7] = {14.0, 14.0, 14.0, 14.0, 16.0, 15.0};
-    float acrescimos[6] = {6.00, 6.00, 8.00, 6.00, 5.00, 5.00};
+    float massas[7] = {14.00, 14.00, 14.00, 14.00, 16.00, 15.00};
+    float acrescimos[7] = {0.00, 6.00, 6.00, 8.00, 6.00, 5.00, 5.00};
     float pedidos[999][4] = {0};
 
     int escolha, option_1, option_2, lanche, tamanho, quantidade, acres;
@@ -136,7 +136,7 @@ int main()
         soma_colunas[j] = soma;
     }
 
-    //###### MOSTRAR A MATRIZ ######
+    /*###### MOSTRAR A MATRIZ ######
     printf("\nTeste:\n");
     for (int i = 0; i < cont_linhas-1; i++)
     {
@@ -145,28 +145,24 @@ int main()
             printf("%.2f | ", pedidos[i][j]);
         }
         printf("\n");
-    }
-    /*
-    printf("\nSoma linhas: ");
-    for (int i = 0; i < cont-1; i++)
-    {
-        printf("%.2f | ", soma_linhas[i]);
-    }
+    }*/
 
-    printf("\nSoma colunas: ");
-    for (int i = 0; i < 4; i++)
-    {
-        printf("%.2f | ", soma_colunas[i]);
-    }
-    //###### APENAS TESTE ######
-    */
+    
 
-    printf("\n\nTotal vendido em pizza: %i pizzas (%.2f reais)", cont_pizza, soma_colunas[0]);
+    printf("\nTotal vendido em pizza: %i pizzas (%.2f reais)", cont_pizza, soma_colunas[0]);
     printf("\nTotal vendido em sanduíche: %i sanduíches (%.2f reais)", cont_sanduiche, soma_colunas[1]);
     printf("\nTotal vendido em massa: %i massas (%.2f reais)", cont_massa, soma_colunas[2]);
     printf("\nTotal do frete: %.2f reais", soma_colunas[3]);
     printf("\nEntregas feitas na noite: %i", frete);
     printf("\nFaturamenteo total: %.2f reais", soma_colunas[0] + soma_colunas[1] + soma_colunas[2] + soma_colunas[3]);
+
+    arquivo = fopen("log_noites.txt", "a+");
+    fprintf(arquivo, "\n\nTotal vendido em pizza: %i pizzas (%.2f reais)", cont_pizza, soma_colunas[0]);
+    fprintf(arquivo, "\nTotal vendido em sanduíche: %i sanduíches (%.2f reais)", cont_sanduiche, soma_colunas[1]);
+    fprintf(arquivo, "\nTotal vendido em massa: %i massas (%.2f reais)", cont_massa, soma_colunas[2]);
+    fprintf(arquivo, "\nTotal do frete: %.2f reais", soma_colunas[3]);
+    fprintf(arquivo, "\nEntregas feitas na noite: %i", frete);
+    fprintf(arquivo, "\nFaturamenteo total: %.2f reais", soma_colunas[0] + soma_colunas[1] + soma_colunas[2] + soma_colunas[3]);
     
     return 0;
 }
@@ -221,7 +217,7 @@ void lista_nomes(int escolha)
     char lista_pizzas[50][50] = {"Presunto", "Muçarela", "Bacon", "Calabresa", "Frango", "Bolonhesa", "Salaminho", "Lombinho", "À moda", "Amoricana", "Portuguesa", "Atum"};
     char lista_sanduiches[50][50] = {"Misto", "Misto Especial", "Piteco", "Cascão", "Cebolinha", "Mônica", "Rosinha", "Chico Bento", "Magali", "Calabresa", "X-Vegetal", "X-Cedaf", "X-Amoricana"};
     char lista_massas[50][50] = {"Espaguete Bolonhesa", "Espaguete de Frango", "Espaguete Molho Vermelho", "Alho e óleo", "Espaguete na Chapa", "Omelete", "Lasanha"};
-    char lista_acrescimo[50][50] = {"Cheddar", "Catupiry", "Cream chesee", "Caramelo", "Bacon", "Palmito"};
+    char lista_acrescimo[50][50] = {"Nenhum", "Cheddar", "Catupiry", "Cream chesee", "Caramelo", "Bacon", "Palmito"};
 
     printf("\n");
     switch (escolha)
@@ -248,7 +244,7 @@ void lista_nomes(int escolha)
     break;
 
     case 4:
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 7; i++)
         {
             printf("%i- %s\n", i, lista_acrescimo[i]);
         }

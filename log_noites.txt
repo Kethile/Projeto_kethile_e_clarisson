@@ -1,0 +1,13 @@
+Total vendido em pizza: 1 pizzas (24,00 reais)
+Total vendido em sanduíche: 1 sanduíches (34,50 reais)
+Total vendido em massa: 1 massas (48,50 reais)
+Total do frete: 3,00 reais
+Entregas feitas na noite: 1
+Faturamenteo total: 110,00 reais
+
+Total vendido em pizza: 1 pizzas (24,00 reais)
+Total vendido em sanduíche: 0 sanduíches (0,00 reais)
+Total vendido em massa: 0 massas (0,00 reais)
+Total do frete: 3,00 reais
+Entregas feitas na noite: 1
+Faturamenteo total: 27,00 reais
